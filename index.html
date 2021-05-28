@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Clase 34 - Ejercicios del 1 al 4</h1>
+    <hr>
+
+    <div id="ejercicio1">
+        <h3>Ejercicio 1: Contar la cantidad de caracteres en una cadena de texto</h3>
+        <input type="text" v-model="cadenaDeTexto" placeholder="Ingrese una cadena de texto">
+        <p>La cadena tiene {{largoDeCadena}} caracteres.</p>
+        <hr>
+    </div>
+    
+
+    <div id="ejercicio2">
+        <h3>Ejercicio 2: Cortar la cantidad de caracteres ingresada</h3>
+        <input type="text" placeholder="Ingrese una cadena de texto" v-model="inputEjercicio2">
+        <p>Seleccione la cantidad de caracteres que quiere ver: </p>
+        <button @click="valorACortar--" :disabled="frenarBotonAbajo">-</button>
+        <p style="display: inline-block;">{{valorACortar}}</p>
+        <button @click="valorACortar++" :disabled="frenarBotonArriba">+</button>
+        <p>{{cortarCadena}}</p>
+        <hr>
+    </div>
+
+
+    <div id="ejercicio3">
+        <h3>Ejercicio 3: Array de textos separados por cierto caracter</h3>
+        <input type="text" v-model="inputEjercicio3" placeholder="Ingrese una cadena de texto">
+        <p>Seleccione el separador. Solo 1 caracter.</p>
+        <input type="text" v-model="separadorEjercicio3" placeholder="Separador del objeto">
+        <button @click="separarCadena()">Separar cadena</button>
+        <ul>
+            <li v-for="item of resultado">{{item}}</li>
+        </ul>
+        <hr>
+    </div>
+
+
+    <div id="ejercicio4">
+        <h3>Ejercicio 4: Repetir el texto ingresado la cantidad de veces.</h3>
+        <input type="text" placeholder="Ingrese una cadena de texto" v-model="inputEjercicio4">
+        <p>Seleccione la cantidad de veces que se repite el texto:</p>
+        <button @click="valorACortar--" :disabled="frenarBotonAbajo">-</button>
+        <p style="display: inline-block;">{{valorACortar}}</p>
+        <button @click="valorACortar++">+</button>
+        <br>
+        <button id="botonEjercicio4" @click="repetirTexto">repetir texto</button>
+        <ul>
+            <li v-for="item of resultado">{{item}}</li>
+        </ul>
+        <hr>
+    </div>
+
+
+
+    <h1>Clase 35 - Ejercicios del 5 al 8</h1>
+    <hr>
+
+    <div id="ejercicio5">
+        <h3>Ejercicio 5: Invierta las palabras de una cadena de texto</h3>
+        <input type="text" v-model="mensaje" placeholder="Ingrese un texto">
+        <button @click="invertirPalabra()">Invertir texto</button>
+        <p>{{mensaje}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio6">
+        <h3>Ejercicio 6: contar el número de veces que se repite una palabra</h3>
+        <p ref="texto">Lorem ipsum dolor Lorem sit amet consectetur adipisicing elit. Cupiditate, Lorem aspernatur officiis Lorem quia illum necessitatibus
+        aliquam dolorum tempori Lorem bussuscipit Lorem earum atque quos Lorem laboriosam fuga nihil maiores maxime a culpa Lorem repudiandae Lorem non?</p>
+        <input type="text" v-model="inputEjercicio6" placeholder="Ingrese una palabra">
+        <button @click="buscarPalabra">Contar palabra</button>
+        <p>{{contador}}</p>
+        <hr>
+    </div>
+
+
+    <div id="ejercicio7">
+        <h3>Ejercicio 7. Buscar palabra palindrona</h3>
+        <input type="text" v-model="inputEjercicio7" placeholder="Ingrese una palabra">
+        <button @click="evaluarPalindrono()">Evaluar palabra</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio8">
+        <h3>Ejercicio 8. Recortar patron</h3>
+        <input type="text" v-model="inputEjercicio8" placeholder="Ingrese un texto">
+        <br><br>
+        <input type="text" v-model="patron" placeholder="Ingrese un patron">
+        <button @click="eliminarPatron">Eliminar patron</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <h1>Clase 36 - Ejercicios del 9 al 11</h1>
+    <hr>
+
+    <div id="ejercicio9">
+        <h3>Ejercicio 9. numero random entre 501 y 600</h3>
+        <button @click="numeroRandom">Numero random</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio10">
+        <h3>Ejercicio10. Evaluar numero capicua</h3>
+        <input type="number" v-model.number="inputEjercicio10" placeholder="Ingresar numero">
+        <button @click="evaluarCapicua">Evaluar capicua</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio11">
+        <h3>Ejercicio11. Calcular factorial</h3>
+        <input type="number" v-model.number="inputEjercicio11" placeholder="Ingresa un numero">
+        <button @click="calcularFactorial">Calcular factorial</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio12">
+        <h3>Ejercicio12. Evaluar numero primo</h3>
+        <input type="number" v-model.number="inputEjercicio12" placeholder="Ingrese un numero">
+        <button @click="calcularPrimo">Evaluar primo</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio13">
+        <h3>Ejercicio13. Evaluar numero par</h3>
+        <input type="number" v-model.number="inputEjercicio14" placeholder="Ingrese un numero">
+        <button @click="calcularPar">Evaluar par</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio14">
+        <h3>Ejercicio14. Conversor de grados</h3>
+        <input type="number" v-model.number="inputEjercicio14" placeholder="Ingrese una temperatura">
+        <br><br>
+        <input type="text" v-model="grado" placeholder="Seleccione el grado">
+        <button @click="convertirAGrados">Convertir</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio15">
+        <h3>Ejercicio15. Convertir binario</h3>
+        <input type="number" v-model.number="inputEjercicio15" placeholder="Ingrese un numero">
+        <br><br>
+        <input type="text" v-model="base" placeholder="Seleccione una base">
+        <button @click="convertirBinarioDecimal">Convertir</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio16">
+        <h3>Ejercicio16. Calcular porcentaje</h3>
+        <input type="number" v-model.number="inputEjercicio16" placeholder="Ingrese un numero">
+        <br><br>
+        <input type="number" v-model.number="porcentaje" placeholder="Ingrese un descuento">
+        <button @click="calcularPorcentaje">Calcular porcentaje</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <div id="ejercicio17">
+        <h3>Ejercicio17. Calcular años de diferencia entre fecha ingresada y actualidad</h3>
+      <input type="date" name="" id="fecha" v-model="inputEjercicio17">
+      <button @click="calcularAnios">calcular</button>
+      <p>La diferencia es de {{resultado}} años.</p>
+      <hr>
+    </div>
+    
+    <div id="ejercicio18">
+        <h3>Ejercicio18. Contar consonantes y vocales</h3>
+        <input type="text" v-model="inputEjercicio18" placeholder="Ingrese un texto.">
+        <button @click="contarLetras">Calcular</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+    
+    <div id="ejercicio19">
+        <h3>Ejercicio19. Comprobar si es un nombre</h3>
+        <input type="text" v-model="inputEjercicio19" placeholder="ingrese su nombre">
+        <button @click="validarNombre">Validar</button>
+        <p>{{resultado}}</p>
+        <hr>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
